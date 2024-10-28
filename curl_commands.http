@@ -1,0 +1,207 @@
+# Create Categories and Products
+# Following categories and products:
+# 
+#   Electronics
+#       Smartphone
+#       Laptop
+#       Headphones
+#       Smartwatch
+#       Camera
+#   Clothing
+#       T-shirt
+#       Jeans
+#       Jacket
+#       Sneakers
+#       Hat
+#   Home Appliances
+#       Refrigerator
+#       Microwave
+#       Washing Machine
+#       Air Conditioner
+#       Vacuum Cleaner
+#   Books 
+#       Fiction Novel
+#       Non-Fiction Book
+#       Cookbook
+#       Biography
+#       Science Fiction
+#   Toys
+#       Action Figure
+#       Puzzle
+#       Board Game
+#       Doll
+#       Building Blocks
+
+# Create Categories
+
+# Create Electronics Category
+POST http://127.0.0.1:8000/api/categories/
+content-type: application/json
+
+{
+    "name": "Electronics"
+}
+###
+###
+# Create Clothing Category
+POST http://127.0.0.1:8000/api/categories/
+content-type: application/json
+###
+{
+    "name": "Clothing"
+}
+###
+###
+# Create Home Appliances Category
+POST http://127.0.0.1:8000/api/categories/
+content-type: application/json
+
+{
+    "name": "Home Appliances"
+}
+###
+###
+
+# Create Books Category
+POST http://127.0.0.1:8000/api/categories/
+content-type: application/json
+
+{
+    "name": "Books"
+}
+###
+
+# Create Toys Category
+POST http://127.0.0.1:8000/api/categories/
+content-type: application/json
+
+{
+    "name": "Toys"
+}
+###
+
+#Create Products
+
+# Create Smartphone
+POST http://127.0.0.1:8000/api/products/
+content-type: application/json
+
+{
+    "name": "Smartphone",
+    "slug": "smartphone",
+    "category": "Electronics",
+    "price": 699.99,
+    "description": "Latest model smartphone with advanced features."
+}
+###
+
+# Create Laptop
+POST http://127.0.0.1:8000/api/products/
+content-type: application/json
+
+{
+    "name": "Laptop",
+    "slug": "laptop",
+    "category": "Electronics",
+    "price": 999.99,
+    "description": "High-performance laptop for professionals."
+}
+###
+
+# Create T-shirt
+POST http://127.0.0.1:8000/api/products/
+content-type: application/json
+
+{
+    "name": "T-shirt",
+    "slug": "t-shirt",
+    "category": "Clothing",
+    "price": 19.99,
+    "description": "Comfortable cotton t-shirt."
+}
+###
+
+# Create Jeans
+POST http://127.0.0.1:8000/api/products/
+content-type: application/json
+
+{
+    "name": "Jeans",
+    "slug": "jeans",
+    "category": "Clothing",
+    "price": 49.99,
+    "description": "Stylish denim jeans."
+}
+###
+
+# Create Refrigerator
+POST http://127.0.0.1:8000/api/products/
+content-type: application/json
+
+{
+    "name": "Refrigerator",
+    "slug": "refrigerator",
+    "category": "Home Appliances",
+    "price": 799.99,
+    "description": "Energy-efficient refrigerator with large capacity."
+}
+###
+
+# User and Order Related Commands
+
+# User Registration
+POST http://127.0.0.1:8000/api/register/
+content-type: application/json
+
+{
+    "username": "john_doe",
+    "email": "john@example.com",
+    "password": "password123"
+}
+###
+
+# User Login
+POST http://127.0.0.1:8000/api/login/
+content-type: application/json
+
+{
+    "username": "john_doe",
+    "password": "password123"
+}
+###
+
+# Create Order
+POST http://127.0.0.1:8000/api/create/
+content-type: application/json
+
+{
+    "user": 1,  # Assuming user ID 1 for john_doe
+    "products": [
+        {"product_id": 1, "quantity": 2}
+###,  # Assuming product IDs for products
+        {"product_id": 2, "quantity": 1}
+###
+    ]
+}
+###
+
+# Order Summary
+###
+GET http://127.0.0.1:8000/api/order_summary/
+content-type: application/json
+###
+# Order Detail
+GET http://127.0.0.1:8000/api/order_detail/1/  # Assuming order ID 1
+content-type: application/json
+###
+# Cart Detail
+GET http://127.0.0.1:8000/api/cart/
+content-type: application/json
+###
+# Add Product to Cart
+POST http://127.0.0.1:8000/api/add/1/  # Assuming product ID 1
+content-type: application/json
+###
+# Remove Product from Cart
+POST http://127.0.0.1:8000/api/remove/1/  # Assuming product ID 1
+content-type: application/json
